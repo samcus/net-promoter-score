@@ -1,0 +1,27 @@
+{
+  "name": "net-promoter-score",
+  "version": "0.0.1",
+  "description": "Calculate a Net Promoter Score (NPS)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samcus/net-promoter-score.git"
+  },
+  "keywords": [
+    "nps",
+    "net",
+    "promoter",
+    "score",
+    "usability",
+    "ux"
+  ],
+  "author": "Samuel Anthony Custer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/samcus/net-promoter-score/issues"
+  },
+  "homepage": "https://github.com/samcus/net-promoter-score#readme"
+}
