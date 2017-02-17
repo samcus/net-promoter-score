@@ -31,5 +31,5 @@ const NPS = require('./sync');
 
 var t = new NPS([9,9,10,6,8,9,9,10,6,8,9,9,10,6,8,9,9,10,6,8,9,9,10,6,8,9,9,10,6,8,9,9,10,6,8,9,9,10,6,8,9,9,10,6,8]);
 var tt = new NPS([1,9,10]);
-console.log(t.data);
-console.log(tt.data);
+console.log(t);
+console.log(tt.score);

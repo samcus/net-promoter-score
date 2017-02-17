@@ -6,32 +6,7 @@ class NPS {
   // Public Methods
 
   constructor(inputScores){
-    //this.data = "test";
-  //   this.data = {
-  //    "detractors": null,
-  //    "passives": null,
-  //    "promoters": null,
-  //    "detractorsPercentage": null,
-  //    "passivesPercentage": null,
-  //    "promotersPercentage": null,
-  //    "summary": null,
-  //    "score": "loading"
-  //  };
-   //console.log(data);
-   //return ("test");
-  //  var data = "test";
-  //  return 1;
-   //return computeScore;
-  //   validateInputScores(inputScores, function(){
-  //     calculatePercentages(inputScores);
-  //     this.data = data;
-  //     //resolve(data);
-  //   }, function(error){
-  //     throw error;
-  //     //reject(error);
-  //
-  //   });
-  buildData(inputScores,this);
+  return buildData(inputScores,this);
   }
 
 }
@@ -51,12 +26,12 @@ var data = {
 };
 
 
-
 // Private Methods
 function buildData(inputScores,that){
   cleanData();
   validateInputScores(inputScores);
-  that.data = data;
+  //that.data = data;
+  return data;
 }
 
 function cleanData(){
