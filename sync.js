@@ -14,16 +14,7 @@ class NPS {
 
 // Private Properties
 
-var data = {
-  "detractors": 0,
-  "passives": 0,
-  "promoters": 0,
-  "detractorsPercentage": 0,
-  "passivesPercentage": 0,
-  "promotersPercentage": 0,
-  "summary": null,
-  "score": null
-};
+var data = {};
 
 
 // Private Methods
