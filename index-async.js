@@ -1,12 +1,31 @@
 'use strict';
-//const Promise = require('bluebird');
+const Promise = require('bluebird');
 
 class NPS {
 
   // Public Methods
 
   constructor(inputScores){
-  return buildData(inputScores,this);
+    return new Promise((resolve, reject) => {
+      data = {
+       "detractors": null,
+       "passives": null,
+       "promoters": null,
+       "detractorsPercentage": null,
+       "passivesPercentage": null,
+       "promotersPercentage": null,
+       "summary": null,
+       "score": "loading"
+     };
+      validateInputScores(inputScores, function(){
+
+        calculatePercentages(inputScores);
+        resolve(data);
+      }, function(error){
+        reject(error);
+
+      });
+    });
   }
 
 }
@@ -14,29 +33,19 @@ class NPS {
 
 // Private Properties
 
-var data = {};
+var data = {
+  "detractors": null,
+  "passives": null,
+  "promoters": null,
+  "detractorsPercentage": null,
+  "passivesPercentage": null,
+  "promotersPercentage": null,
+  "summary": null,
+  "score": "loading"
+};
 
 
 // Private Methods
-function buildData(inputScores,that){
-  cleanData();
-  validateInputScores(inputScores);
-  //that.data = data;
-  return data;
-}
-
-function cleanData(){
-  data = {
-    "detractors": 0,
-    "passives": 0,
-    "promoters": 0,
-    "detractorsPercentage": 0,
-    "passivesPercentage": 0,
-    "promotersPercentage": 0,
-    "summary": null,
-    "score": null
-  };
-}
 
 // Cycle Through All Input Scores
 function validateInputScores(inputScores, callback, error){
@@ -46,9 +55,7 @@ function validateInputScores(inputScores, callback, error){
       return error(eMessage);
     });
     if((parseInt(index + 1)) == lengthTotal){
-      //return callback();
-      //return data;
-      calculatePercentages(inputScores);
+      return callback();
     }
   });
 }
@@ -86,16 +93,15 @@ function determineSummary(score){
   } if(score === 100){
     data.summary = "perfect";
   }
-  return data;
 }
 
 // Validate Input NPS
 function validateInputScore(inputScore, error){
   if(typeof(inputScore) != "number"){
-    throw new TypeError("Score must be a number");
+    //throw "Score must be a number";
     return error("Score must be a number");
   } if(inputScore < 0 || inputScore > 10){
-    throw new RangeError("Score is out of NPS range");
+    //throw "Score is out of NPS range";
     return error("Score is out of NPS range");
   } else{
     classifyInputScore(inputScore);
