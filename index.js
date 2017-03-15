@@ -1,20 +1,15 @@
 'use strict';
 
 class NPS {
-
   // Public Methods
-
   constructor(inputScores){
+    validateArguments(arguments.length,inputScores);
     return buildData(inputScores,this);
   }
-
 }
 
-
 // Private Properties
-
 var data = {};
-
 
 // Private Methods
 function buildData(inputScores,that){
@@ -22,6 +17,17 @@ function buildData(inputScores,that){
   validateInputScores(inputScores);
   //that.data = data;
   return data;
+}
+
+function validateArguments(al,input){
+  if (Array.isArray(input)==false){
+    throw new TypeError("Argument must be an array")
+  }
+  else if (al == 0){
+    throw new RangeError("Missing input scores array argument");
+  } else if (al > 1){
+    throw new RangeError("Too many arguments");
+  }
 }
 
 function cleanData(){
