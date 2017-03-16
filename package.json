@@ -1,6 +1,6 @@
 {
   "name": "net-promoter-score",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Calculate a Net Promoter Score (NPS)",
   "main": "index.js",
   "scripts": {
